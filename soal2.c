@@ -1,3 +1,12 @@
+/** EL2008 Praktikum Pemecahan Masalah dengan Pemrograman 2026/2027
+ *  Modul               : 03 - Structures and Dynamic Arrays
+ *  Hari dan Tanggal    : Senin, 27 April 2026
+ *  Nama (NIM)          : Arvin Fauzan Badri (13224072)
+ *  Nama File           : soal2.c
+ *  Deskripsi           : Soal 2. Input data-data meteorit ke array, sortir, print 3 teratas 
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,17 +46,22 @@ Array_Meteorite am_append(Array_Meteorite arr, Meteorite met) {
 Array_Meteorite am_bubble_sort(Array_Meteorite arr) {
     for(int i = 0; i < arr.len; ++i) {
         for(int j = 0; j < arr.len - i - 1; ++j) {
+            // purity highest to lowest
             if(arr.data[j].purity < arr.data[j + 1].purity) {
                 Meteorite temp = arr.data[j];
                 arr.data[j] = arr.data[j + 1];
                 arr.data[j + 1] = temp;
             }
+            // if purity equal
+            // mass lowest to highest
             else if(arr.data[j].purity == arr.data[j + 1].purity &&
                     arr.data[j].mass > arr.data[j + 1].mass) {
                 Meteorite temp = arr.data[j];
                 arr.data[j] = arr.data[j + 1];
                 arr.data[j + 1] = temp;
             }
+            // if purity and mass equal
+            // name alphabetically lowest to highest
             else if(arr.data[j].purity == arr.data[j + 1].purity && 
                     arr.data[j].mass == arr.data[j + 1].mass && 
                     strcmp(arr.data[j].name, arr.data[j+1].name) > 0) {
