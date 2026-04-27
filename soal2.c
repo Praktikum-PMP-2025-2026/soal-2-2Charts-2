@@ -33,10 +33,10 @@ Array_Meteorite am_append(Array_Meteorite arr, Meteorite met) {
     return arr;
 }
 
+// highest to lowest
 Array_Meteorite am_bubble_sort(Array_Meteorite arr) {
     for(int i = 0; i < arr.len; ++i) {
         for(int j = 0; j < arr.len - i - 1; ++j) {
-            // highest to lowest
             if(arr.data[j].purity < arr.data[j + 1].purity) {
                 Meteorite temp = arr.data[j];
                 arr.data[j] = arr.data[j + 1];
