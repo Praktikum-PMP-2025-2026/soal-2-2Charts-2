@@ -34,8 +34,8 @@ Array_Meteorite am_append(Array_Meteorite arr, Meteorite met) {
 }
 
 Array_Meteorite am_bubble_sort(Array_Meteorite arr) {
-    for(int i = 0; i < arr.len; ++i) {
-        for(int j = 0; j < arr.len - i - 1; ++j) {
+    for(size_t i = 0; i < arr.len; ++i) {
+        for(size_t j = 0; j < arr.len - i - 1; ++j) {
             // highest to lowest
             if(arr.data[j].purity < arr.data[j + 1].purity) {
                 Meteorite temp = arr.data[j];
@@ -68,7 +68,7 @@ int main(void) {
 
     am = am_reserve(am, N);
 
-    for(int i = 0; i < N; ++i) {
+    for(size_t i = 0; i < N; ++i) {
         Meteorite met = {0};
         met.name = malloc(5120);
         scanf("%s %d %d", met.name, &met.mass, &met.purity);
@@ -76,7 +76,7 @@ int main(void) {
     }
 
     am = am_bubble_sort(am);
-    for(int i = 0, j = 0; j < 3 && i < am.len; ++i, ++j) {
+    for(size_t i = 0, j = 0; j < 3 && i < am.len; ++i, ++j) {
         printf("%s %d %d\n", am.data[i].name, am.data[i].mass, am.data[i].purity);
     }
 
